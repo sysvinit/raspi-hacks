@@ -28,8 +28,10 @@ reboot="$bb reboot"
 
 $mount -o remount,rw /
 $mkdir /tmp
+$mkdir /proc
 $mkdir /new_root
 $mount -t tmpfs none /tmp
+$mount -t proc none /proc
 
 # Access the root fs
 $mknod /tmp/mmcblk0p2 c 179 2
@@ -49,6 +51,9 @@ $rmdir /new_root
 $rm /tmp/mmcblk0p2
 $umount /tmp
 $rmdir /tmp
+
+$umount /proc
+$rmdir /proc
 
 # Change the boot configuration
 $cp -f /cmdline.txt.new /cmdline.txt

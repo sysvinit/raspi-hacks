@@ -1,6 +1,6 @@
 # Raspberry Pi hacks
 
-This repository contains proof of concept code for performing
+This repository contains ***proof of concept*** code for performing
 first-boot initialisation on a Raspbian system without requiring
 access to the ext4 partition.
 

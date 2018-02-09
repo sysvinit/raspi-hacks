@@ -32,7 +32,7 @@ file which look like this:
 
 to something like this:
 
-`root=/dev/mmcblk0p1 rootfstype=vfat rootflags=umask=000`
+`root=/dev/mmcblk0p1 rootfstype=vfat rootflags=umask=000 init=/raspi-hacks.sh`
 
 (This makes the assumption that the parition layout of your SD card is
 the default Raspbian layout, i.e. that the vfat boot partition is the

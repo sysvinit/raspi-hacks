@@ -51,7 +51,8 @@ $umount /tmp
 $rmdir /tmp
 
 # Change the boot configuration
-$cp /config.txt.new /config.txt
+$cp -f /cmdline.txt.new /cmdline.txt
+$rm /cmdline.txt.new
 
 # Sync filesystems, mount read-only, and reboot
 $sync

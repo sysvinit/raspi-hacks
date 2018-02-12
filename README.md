@@ -6,6 +6,13 @@ access to the ext4 partition.
 
 A working Raspbian system is required for bootstrap purposes.
 
+## Legal
+
+This software (such that it is) is under the ISC licence; see the file 
+`raspi-hacks.sh` for details. Note, however, that busybox (which is a 
+dependency of this script) is licenced under the GNU General Public 
+License version 2.
+
 ## Acknowledgements
 
 A sideways look at Bytemarks's

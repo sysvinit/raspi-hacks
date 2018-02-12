@@ -21,20 +21,21 @@ cp="$bb cp"
 rm="$bb rm"
 rmdir="$bb rmdir"
 reboot="$bb reboot"
+sleep="$bb sleep"
+echo="$bb echo"
+mv="$bb mv"
 
 # Mount root filesystem as writable, then create a tmpfs directory in
 # which we can create the device nodes we need to access the root
 # partition
 
-$mount -o remount,rw /
+$mount -o remount,rw / / # Two slashes are essential!
 $mkdir /tmp
-$mkdir /proc
 $mkdir /new_root
-$mount -t tmpfs none /tmp
-$mount -t proc none /proc
+$mount -t tmpfs tmpfs /tmp
 
 # Access the root fs
-$mknod /tmp/mmcblk0p2 c 179 2
+$mknod /tmp/mmcblk0p2 b 179 2
 $mount -o rw -t ext4 /tmp/mmcblk0p2 /new_root
 
 # Set up the message
@@ -52,12 +53,13 @@ $rm /tmp/mmcblk0p2
 $umount /tmp
 $rmdir /tmp
 
-$umount /proc
-$rmdir /proc
-
 # Change the boot configuration
-$cp -f /cmdline.txt.new /cmdline.txt
-$rm /cmdline.txt.new
+$mv -f /cmdline.txt /cmdline.txt.orig
+$mv -f /cmdline.txt.new /cmdline.txt
+
+# Print some messages
+$echo "Configuration complete, sleeping 15 seconds"
+$sleep 15
 
 # Sync filesystems, mount read-only, and reboot
 $sync

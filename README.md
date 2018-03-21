@@ -15,7 +15,7 @@ License version 2.
 
 ## Acknowledgements
 
-A sideways look at Bytemarks's
+A sideways look at Bytemark's
 [pi-init2](https://github.com/BytemarkHosting/pi-init2) was taken to
 see how other people solve this problem.
 
